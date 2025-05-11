@@ -16,7 +16,7 @@ const Button = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`px-2 py-1 rounded text-white bg-blue-600 ${className}`}
+      className={`px-2 py-1 rounded-full text-white bg-blue-600 ${className}`}
     >
       {buttonText}
     </button>

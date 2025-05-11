@@ -16,11 +16,11 @@ const Counter = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-full flex-col">
+    <div className="flex items-center justify-center px-2 py-1 w-full min-h-screen flex-col">
       <div>Counter: {counter}</div>
       <div>
-        <Button type="button" disabled={false} buttonText="+" onClick={increment} className="mr-2" />
-        <Button type="button" disabled={false} buttonText="-" onClick={decrement} className="bg-red-400" />
+        <Button type="button" disabled={false} buttonText="+" onClick={increment} className="mr-2 px-5" />
+        <Button type="button" disabled={false} buttonText="-" onClick={decrement} className="bg-red-400 px-5" />
       </div>
     </div>
   );
