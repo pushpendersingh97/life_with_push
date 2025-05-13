@@ -9,6 +9,11 @@ const ToDoList = () => {
 
   const addItem = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (inputTxt === '') {
+      return;
+    }
+
     setToDoList((prev) => [...prev, inputTxt]);
     setInputTxt('');
   };
@@ -31,10 +36,10 @@ const ToDoList = () => {
               id="inputTxt"
               value={inputTxt}
               onChange={(e) => setInputTxt(e.target.value)}
-              className="border-2 border-r-0 px-4 py-2 rounded-l-2xl grow-2 focus:outline-none"
+              className="border-2 border-r-0 px-4 py-2 rounded-l-full grow-2 focus:outline-none"
               placeholder="Type Something..."
             />
-            <Button buttonText="Add Item" type="submit" className="rounded-l-2xl" />
+            <Button buttonText="Add Item" type="submit" className="rounded-l-2xl !bg-[#B82132]" />
           </div>
         </form>
         <div className="flex flex-col mt-4">
