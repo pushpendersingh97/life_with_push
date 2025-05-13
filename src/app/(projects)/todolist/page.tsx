@@ -1,36 +1,48 @@
 'use client';
 import { useState } from 'react';
-import Cards from './_components/Cards';
+import TodoCards from './_components/TodoCards';
 import Button from '@/components/Button';
 
 const ToDoList = () => {
   const [inputTxt, setInputTxt] = useState<string>('');
   const [toDoList, setToDoList] = useState<string[]>([]);
 
-  const addItem = () => {
+  const addItem = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setToDoList((prev) => [...prev, inputTxt]);
     setInputTxt('');
   };
 
+  const removeItem = (index: number) => {
+    const updatedArr = [...toDoList];
+    updatedArr.splice(index, 1);
+    setToDoList(updatedArr);
+  };
+
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen bg-black text-white">
-      <div className="flex">To Do List</div>
-      <div className="flex flex-col">
-        <input
-          type="text"
-          name="inputTxt"
-          id="inputTxt"
-          value={inputTxt}
-          onChange={(e) => setInputTxt(e.target.value)}
-          className="border-2 border-amber-50 px-4 py-2 rounded-full"
-          placeholder="Type Something..."
-        />
-        <Button buttonText="Add Item" onClick={addItem} type="submit" className="mt-4" />
-      </div>
-      <div className="flex">
-        {toDoList.map((item, index) => (
-          <Cards key={index} item={item} />
-        ))}
+    <div className="flex items-center flex-col min-h-screen bg-[#F6DED850] text-[#B82132]">
+      <div className="px-8 py-12 bg-[#F2B28C50] my-4 rounded-2xl w-1/2">
+        <div className="text-3xl font-bold text-center mb-12 underline">To Do List</div>
+        <form onSubmit={addItem}>
+          <div className="flex w-full">
+            <input
+              type="text"
+              name="inputTxt"
+              id="inputTxt"
+              value={inputTxt}
+              onChange={(e) => setInputTxt(e.target.value)}
+              className="border-2 border-r-0 px-4 py-2 rounded-l-2xl grow-2 focus:outline-none"
+              placeholder="Type Something..."
+            />
+            <Button buttonText="Add Item" type="submit" className="rounded-l-2xl" />
+          </div>
+        </form>
+        <div className="flex flex-col mt-4">
+          <span className="font-semibold text-lg">List of Tasks</span>
+          {toDoList.length === 0 && <span>No Records Found...</span>}
+          {toDoList.length > 0 &&
+            toDoList.map((item, index) => <TodoCards key={index} item={item} index={index} removeItem={removeItem} />)}
+        </div>
       </div>
     </div>
   );

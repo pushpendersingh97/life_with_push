@@ -8,7 +8,7 @@ const Button = ({
   buttonText: string | undefined;
   type: 'submit' | 'reset' | 'button' | undefined;
   disabled?: boolean | undefined;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string | undefined;
 }>) => {
   return (
