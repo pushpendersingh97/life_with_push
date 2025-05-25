@@ -1,8 +1,9 @@
 export default function Home() {
   const projectList: Array<string> = [
-    'Create a Counter Component',
-    'Implement a Toggle Switch',
-    'Build a To-Do List',
+    'Create a Counter Component ✅',
+    'Implement a Toggle Switch ✅',
+    'Build a To-Do List ✅',
+    'Build a stopwatch ✅',
     'Fetch Data from an API',
     'Create a Search Bar',
     'Build a Dropdown Menu',
