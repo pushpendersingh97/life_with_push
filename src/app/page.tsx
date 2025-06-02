@@ -21,6 +21,7 @@ export default function Home() {
     'Build a Todo List with Drag-and-Drop',
     'Create a Countdown Timer',
     'Implement Formik with Yup Validation Conclusion',
+    'Stepper Component',
   ];
 
   return (
